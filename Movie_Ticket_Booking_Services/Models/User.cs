@@ -45,7 +45,7 @@ namespace Movie_Ticket_Booking_Services.Models
         }
 
         [DataMember]
-        public string PhoneNo
+        public string Phone_no
         {
             get { return phone_no; }
             set { phone_no = value; }

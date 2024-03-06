@@ -37,7 +37,7 @@ namespace Movie_Ticket_Booking_Services
                     user.Id = Convert.ToInt32(reader["id"]);
                     user.Name = reader.GetString(2);
                     user.Email = reader.GetString(1);
-                    user.PhoneNo = reader.GetString(4);
+                    user.Phone_no = reader.GetString(4);
                 }
                 reader.Close();
                 return user;
@@ -52,6 +52,30 @@ namespace Movie_Ticket_Booking_Services
                 DataSet ds = new DataSet();
                 da.Fill(ds, "User");
                 return ds;
+            }
+        }
+
+        public void SignUp(User user)
+        {
+            using (SqlConnection cnn = GetSqlConnection())
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO [User] (Name,Email,Password,Phone_no) VALUES (@Name , @Email, @Password, @Phone_no)", cnn);
+                cmd.Parameters.AddWithValue("@Name", user.Name);
+                cmd.Parameters.AddWithValue("@Email", user.Email);
+                cmd.Parameters.AddWithValue("@Password", user.Password);
+                cmd.Parameters.AddWithValue("@Phone_no", user.Phone_no);
+                
+                cnn.Open();
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    Console.WriteLine("User signed up successfully.");
+                }
+                else
+                {
+                    Console.WriteLine("Failed to sign up user.");
+                }
+
             }
         }
     }

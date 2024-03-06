@@ -18,5 +18,8 @@ namespace Movie_Ticket_Booking_Services
         [OperationContract]
         User GetUser(int id);
 
+        [OperationContract]
+        void SignUp(User user);
+
     }
 }
