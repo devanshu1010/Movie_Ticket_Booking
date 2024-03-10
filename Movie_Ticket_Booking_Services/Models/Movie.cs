@@ -15,6 +15,7 @@ namespace Movie_Ticket_Booking_Services.Models
         private string genre;
         private DateTime releaseDate;
         private TimeSpan duration;
+        private ICollection<TheaterMovie> theaters; // Change to ICollection<TheaterMovie> to reflect the relationship
 
         [DataMember]
         public int Movie_Id
@@ -51,7 +52,13 @@ namespace Movie_Ticket_Booking_Services.Models
             set { duration = value; }
         }
 
+        [DataMember]
         // Navigation property for the many-to-many relationship
-        public virtual ICollection<Theater> Theaters { get; set; }
+        public virtual ICollection<TheaterMovie> Theaters
+        {
+            get { return theaters; }
+            set { theaters = value; }
+        }
+
     }
 }

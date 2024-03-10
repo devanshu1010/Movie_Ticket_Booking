@@ -34,7 +34,7 @@ namespace Movie_Ticket_Booking_Services.Models
             get { return address; }
             set { address = value; }
         }
-
-        public virtual ICollection<Movie> Movies { get; set; }
+        [DataMember]
+        public virtual ICollection<TheaterMovie> Movies { get; set; }
     }
 }
