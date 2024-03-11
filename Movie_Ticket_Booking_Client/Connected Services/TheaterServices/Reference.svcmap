@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="7e82fcc9-16d9-4711-b97e-1f4571883ee9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TheaterServices/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e5ec8516-b59a-4819-804d-54f6284181a4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TheaterServices/?disco" />
+    <MetadataFile FileName="TheaterServices.wsdl" MetadataType="Wsdl" ID="07a1e59f-b1d5-4e5d-882b-1f5672477cef" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TheaterServices/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d23d5707-0f83-42f7-9934-8befc33163f7" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TheaterServices/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="1cb0b589-0e9e-494b-874b-8077af4aaadb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TheaterServices/?xsd=xsd0" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="13fae7c1-22ba-4aa2-8789-96fdb6d6f4e2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TheaterServices/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

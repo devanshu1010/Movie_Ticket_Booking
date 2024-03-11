@@ -78,5 +78,33 @@ namespace Movie_Ticket_Booking_Services
 
             }
         }
+
+        public User Login(string email, string password)
+        {
+            using (SqlConnection cnn = GetSqlConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM [User] WHERE Email = @email AND Password = @password", cnn);
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password", password);
+
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                User user = null;
+                if (reader.Read())
+                {
+                    user = new User
+                    {
+                        Id = Convert.ToInt32(reader["Id"]),
+                        Name = reader.GetString(1),
+                        Email = reader.GetString(2),
+                        Phone_no = reader.GetString(4)
+                    };
+                }
+                reader.Close();
+                return user;
+            }
+        }
+
     }
 }

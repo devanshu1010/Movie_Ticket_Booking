@@ -21,5 +21,8 @@ namespace Movie_Ticket_Booking_Services
         [OperationContract]
         void SignUp(User user);
 
+        [OperationContract]
+        User Login(string email, string password);
+
     }
 }

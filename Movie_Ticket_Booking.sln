@@ -5,6 +5,10 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie_Ticket_Booking_Services", "Movie_Ticket_Booking_Services\Movie_Ticket_Booking_Services.csproj", "{A1F33B0D-893D-4EA5-A9C1-2E12E4F28E9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{4D4601FD-6013-4664-94E1-B8B868D4750B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movie_Ticket_Booking_Client", "Movie_Ticket_Booking_Client\Movie_Ticket_Booking_Client.csproj", "{1F7CDE80-F9BE-4D1C-BAFA-B5341DDDB078}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A1F33B0D-893D-4EA5-A9C1-2E12E4F28E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1F33B0D-893D-4EA5-A9C1-2E12E4F28E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1F33B0D-893D-4EA5-A9C1-2E12E4F28E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4601FD-6013-4664-94E1-B8B868D4750B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4601FD-6013-4664-94E1-B8B868D4750B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4601FD-6013-4664-94E1-B8B868D4750B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4601FD-6013-4664-94E1-B8B868D4750B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F7CDE80-F9BE-4D1C-BAFA-B5341DDDB078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F7CDE80-F9BE-4D1C-BAFA-B5341DDDB078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F7CDE80-F9BE-4D1C-BAFA-B5341DDDB078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F7CDE80-F9BE-4D1C-BAFA-B5341DDDB078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
