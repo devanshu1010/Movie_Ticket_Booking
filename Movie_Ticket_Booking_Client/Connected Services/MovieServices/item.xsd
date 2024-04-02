@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Movie_Ticket_Booking_Services.Models" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Movie_Ticket_Booking_Services.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/MovieServices/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Movie" nillable="true" type="tns:Movie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMovie" nillable="true" type="tns:ArrayOfMovie" />
+  <xs:complexType name="Movie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Duration" type="ser:duration" />
+      <xs:element minOccurs="0" name="Genre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Movie_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Release_Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Theaters" nillable="true" type="tns:ArrayOfTheaterMovie" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Movie" nillable="true" type="tns:Movie" />
+  <xs:complexType name="ArrayOfTheaterMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TheaterMovie" nillable="true" type="tns:TheaterMovie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTheaterMovie" nillable="true" type="tns:ArrayOfTheaterMovie" />
+  <xs:complexType name="TheaterMovie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Movie" nillable="true" type="tns:Movie" />
+      <xs:element minOccurs="0" name="Movie_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Theater" nillable="true" type="tns:Theater" />
+      <xs:element minOccurs="0" name="Theater_Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Total_Seats" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TheaterMovie" nillable="true" type="tns:TheaterMovie" />
+  <xs:complexType name="Theater">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Movies" nillable="true" type="tns:ArrayOfTheaterMovie" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Theater_Id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Theater" nillable="true" type="tns:Theater" />
+  <xs:complexType name="ArrayOfTheater">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Theater" nillable="true" type="tns:Theater" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTheater" nillable="true" type="tns:ArrayOfTheater" />
+</xs:schema>

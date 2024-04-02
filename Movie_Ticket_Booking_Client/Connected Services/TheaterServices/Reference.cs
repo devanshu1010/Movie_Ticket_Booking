@@ -368,6 +368,12 @@ namespace Movie_Ticket_Booking_Client.TheaterServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITheaterServices/UpdateTheater", ReplyAction="http://tempuri.org/ITheaterServices/UpdateTheaterResponse")]
         System.Threading.Tasks.Task<string> UpdateTheaterAsync(Movie_Ticket_Booking_Client.TheaterServices.Theater theater);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITheaterServices/GetMoviesNotInTheater", ReplyAction="http://tempuri.org/ITheaterServices/GetMoviesNotInTheaterResponse")]
+        Movie_Ticket_Booking_Client.TheaterServices.Movie[] GetMoviesNotInTheater(int theaterId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITheaterServices/GetMoviesNotInTheater", ReplyAction="http://tempuri.org/ITheaterServices/GetMoviesNotInTheaterResponse")]
+        System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TheaterServices.Movie[]> GetMoviesNotInTheaterAsync(int theaterId);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITheaterServices/DeleteTheater", ReplyAction="http://tempuri.org/ITheaterServices/DeleteTheaterResponse")]
         string DeleteTheater(int id);
         
@@ -438,6 +444,14 @@ namespace Movie_Ticket_Booking_Client.TheaterServices {
         
         public System.Threading.Tasks.Task<string> UpdateTheaterAsync(Movie_Ticket_Booking_Client.TheaterServices.Theater theater) {
             return base.Channel.UpdateTheaterAsync(theater);
+        }
+        
+        public Movie_Ticket_Booking_Client.TheaterServices.Movie[] GetMoviesNotInTheater(int theaterId) {
+            return base.Channel.GetMoviesNotInTheater(theaterId);
+        }
+        
+        public System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TheaterServices.Movie[]> GetMoviesNotInTheaterAsync(int theaterId) {
+            return base.Channel.GetMoviesNotInTheaterAsync(theaterId);
         }
         
         public string DeleteTheater(int id) {

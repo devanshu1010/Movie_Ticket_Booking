@@ -9,6 +9,7 @@ namespace Movie_Ticket_Booking_Client
 {
     public partial class Login : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,10 +26,10 @@ namespace Movie_Ticket_Booking_Client
                 UserServices.UserServicesClient service1Client = new UserServices.UserServicesClient();
 
                 UserServices.User user = service1Client.Login(email, password);
-                Console.WriteLine(user);
+                /*Console.WriteLine(user);
                 Console.WriteLine(user.Name);
                 Console.WriteLine(user.Email);
-                Console.WriteLine(user.Password);
+                Console.WriteLine(user.Password);*/
                 if (user != null)
                 {
                     Session["userId"] = user.Id;
@@ -40,7 +41,7 @@ namespace Movie_Ticket_Booking_Client
                     {
                         Response.Redirect("TheaterManagement.aspx");
                     }
-                    Response.Redirect("TheaterManagement.aspx");
+                    Response.Redirect("Home.aspx");
                 }
                 else
                 {

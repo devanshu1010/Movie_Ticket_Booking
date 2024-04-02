@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="MovieServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/MovieServices/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/MovieServices/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/MovieServices/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Movie_Ticket_Booking_Services.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMovieServices_GetMovies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovies" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_GetMovies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_GetMovie_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovie" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_GetMovie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_AddMovie_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMovie" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_AddMovie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_UpdateMovie_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMovie" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_UpdateMovie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_DeleteMovie_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMovie" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_DeleteMovie_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteMovieResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_AddMovieToTheater_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddMovieToTheater" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_AddMovieToTheater_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddMovieToTheaterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_GetTheatersByMovieId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTheatersByMovieId" />
+  </wsdl:message>
+  <wsdl:message name="IMovieServices_GetTheatersByMovieId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTheatersByMovieIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMovieServices">
+    <wsdl:operation name="GetMovies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieServices/GetMovies" message="tns:IMovieServices_GetMovies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieServices/GetMoviesResponse" message="tns:IMovieServices_GetMovies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMovie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieServices/GetMovie" message="tns:IMovieServices_GetMovie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieServices/GetMovieResponse" message="tns:IMovieServices_GetMovie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieServices/AddMovie" message="tns:IMovieServices_AddMovie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieServices/AddMovieResponse" message="tns:IMovieServices_AddMovie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieServices/UpdateMovie" message="tns:IMovieServices_UpdateMovie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieServices/UpdateMovieResponse" message="tns:IMovieServices_UpdateMovie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieServices/DeleteMovie" message="tns:IMovieServices_DeleteMovie_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieServices/DeleteMovieResponse" message="tns:IMovieServices_DeleteMovie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMovieToTheater">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieServices/AddMovieToTheater" message="tns:IMovieServices_AddMovieToTheater_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieServices/AddMovieToTheaterResponse" message="tns:IMovieServices_AddMovieToTheater_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTheatersByMovieId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IMovieServices/GetTheatersByMovieId" message="tns:IMovieServices_GetTheatersByMovieId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IMovieServices/GetTheatersByMovieIdResponse" message="tns:IMovieServices_GetTheatersByMovieId_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMovieServices" type="tns:IMovieServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMovies">
+      <soap:operation soapAction="http://tempuri.org/IMovieServices/GetMovies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMovie">
+      <soap:operation soapAction="http://tempuri.org/IMovieServices/GetMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMovie">
+      <soap:operation soapAction="http://tempuri.org/IMovieServices/AddMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMovie">
+      <soap:operation soapAction="http://tempuri.org/IMovieServices/UpdateMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteMovie">
+      <soap:operation soapAction="http://tempuri.org/IMovieServices/DeleteMovie" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMovieToTheater">
+      <soap:operation soapAction="http://tempuri.org/IMovieServices/AddMovieToTheater" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTheatersByMovieId">
+      <soap:operation soapAction="http://tempuri.org/IMovieServices/GetTheatersByMovieId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MovieServices">
+    <wsdl:port name="BasicHttpBinding_IMovieServices" binding="tns:BasicHttpBinding_IMovieServices">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/MovieServices/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

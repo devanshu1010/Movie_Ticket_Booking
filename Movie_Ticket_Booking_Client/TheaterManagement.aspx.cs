@@ -17,9 +17,33 @@ namespace Movie_Ticket_Booking_Client
             if (!IsPostBack)
             {
                 BindTheaters();
+                /*if (ddlAvailableMovies.Items.Count == 0) // Check if movies are already populated to avoid duplication
+                {
+                    PopulateAvailableMovies();
+                }*/
             }
 
         }
+
+        protected void PopulateAvailableMovies()
+        {
+            // Get the ID of the selected theater
+            int selectedTheaterId = Convert.ToInt32(gvTheaters.SelectedDataKey.Value);
+
+            // Call the service method to get movies that are not associated with the selected theater
+            Movie[] availableMoviesArray = theaterServices.GetMoviesNotInTheater(selectedTheaterId);
+
+            // Convert the array to a list
+            List<Movie> availableMovies = availableMoviesArray.ToList();
+
+            // Bind the available movies to the dropdown list
+            ddlAvailableMovies.DataSource = availableMovies;
+            ddlAvailableMovies.DataTextField = "Title"; // Assuming Title is the property of Movie class representing movie title
+            ddlAvailableMovies.DataValueField = "Movie_Id"; // Assuming Movie_Id is the property of Movie class representing movie ID
+            ddlAvailableMovies.DataBind();
+        }
+
+
         protected void BindTheaters()
         {
             gvTheaters.DataSource = theaterServices.GetTheaters();
@@ -35,11 +59,15 @@ namespace Movie_Ticket_Booking_Client
             dvTheaterDetails.DataSource = new[] { selectedTheater };
             dvTheaterDetails.DataBind();
 
+            PopulateAvailableMovies();
+
             txtUpdateTheaterName.Text = selectedTheater.Name;
             txtUpdateTheaterAddress.Text = selectedTheater.Address;
 
             // Show the Update Theater button
             btnShowUpdateForm.Visible = true;
+            btnAddMovieForm.Visible = true;
+            btnDeleteTheater.Visible = true;
         }
 
         protected void btnAddTheater_Click(object sender, EventArgs e)
@@ -68,6 +96,7 @@ namespace Movie_Ticket_Booking_Client
             // Clear input fields
             txtNewTheaterName.Text = string.Empty;
             txtNewTheaterAddress.Text = string.Empty;
+
         }
 
         protected void btnUpdateTheater_Click(object sender, EventArgs e)
@@ -103,6 +132,8 @@ namespace Movie_Ticket_Booking_Client
             txtUpdateTheaterAddress.Text = string.Empty;
 
             btnShowUpdateForm.Visible = false;
+            
+           
         }
 
         protected void btnDeleteTheater_Click(object sender, EventArgs e)
@@ -115,5 +146,34 @@ namespace Movie_Ticket_Booking_Client
             // Display result to the user
         }
 
+        protected void btnAddMovieToTheater_Click(object sender, EventArgs e)
+        {
+            int theaterId = Convert.ToInt32(gvTheaters.SelectedDataKey.Value);
+            int movieId = Convert.ToInt32(ddlAvailableMovies.SelectedValue);
+            int totalSeats = Convert.ToInt32(txtTotalSeats.Text);
+
+            // Call the service method to add the movie to the theater
+            string result = theaterServices.AddMovieToTheater(theaterId, movieId, totalSeats);
+
+            // Display result to the user
+            lblAddMovieResult.Text = result;
+            lblAddMovieResult.Visible = true;
+
+            // Clear input fields
+            txtTotalSeats.Text = string.Empty;
+
+            // If the result is successful, trigger the event handler to show the updated theater details
+            if (result == "Movie added to theater successfully.")
+            {
+                gvTheaters_SelectedIndexChanged(sender, e);
+            }
+        }
+
+
+        protected void btnGoToMovieManagement_Click(object sender, EventArgs e)
+        {
+            // Redirect to the Movie Management page
+            Response.Redirect("MovieManagement.aspx");
+        }
     }
 }

@@ -31,6 +31,12 @@
   <wsdl:message name="ITheaterServices_UpdateTheater_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateTheaterResponse" />
   </wsdl:message>
+  <wsdl:message name="ITheaterServices_GetMoviesNotInTheater_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesNotInTheater" />
+  </wsdl:message>
+  <wsdl:message name="ITheaterServices_GetMoviesNotInTheater_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMoviesNotInTheaterResponse" />
+  </wsdl:message>
   <wsdl:message name="ITheaterServices_DeleteTheater_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTheater" />
   </wsdl:message>
@@ -59,6 +65,10 @@
     <wsdl:operation name="UpdateTheater">
       <wsdl:input wsaw:Action="http://tempuri.org/ITheaterServices/UpdateTheater" message="tns:ITheaterServices_UpdateTheater_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITheaterServices/UpdateTheaterResponse" message="tns:ITheaterServices_UpdateTheater_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesNotInTheater">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITheaterServices/GetMoviesNotInTheater" message="tns:ITheaterServices_GetMoviesNotInTheater_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITheaterServices/GetMoviesNotInTheaterResponse" message="tns:ITheaterServices_GetMoviesNotInTheater_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteTheater">
       <wsdl:input wsaw:Action="http://tempuri.org/ITheaterServices/DeleteTheater" message="tns:ITheaterServices_DeleteTheater_InputMessage" />
@@ -100,6 +110,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateTheater">
       <soap:operation soapAction="http://tempuri.org/ITheaterServices/UpdateTheater" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMoviesNotInTheater">
+      <soap:operation soapAction="http://tempuri.org/ITheaterServices/GetMoviesNotInTheater" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

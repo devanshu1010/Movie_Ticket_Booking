@@ -59,6 +59,7 @@ namespace Movie_Ticket_Booking_Services
         {
             using (SqlConnection cnn = GetSqlConnection())
             {
+                Console.WriteLine(user);
                 SqlCommand cmd = new SqlCommand("INSERT INTO [User] (Name,Email,Password,Phone_no) VALUES (@Name , @Email, @Password, @Phone_no)", cnn);
                 cmd.Parameters.AddWithValue("@Name", user.Name);
                 cmd.Parameters.AddWithValue("@Email", user.Email);

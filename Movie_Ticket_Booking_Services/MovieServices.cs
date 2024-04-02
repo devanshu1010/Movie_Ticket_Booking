@@ -26,10 +26,10 @@ namespace Movie_Ticket_Booking_Services
             using (SqlConnection cnn = GetSqlConnection())
             {
                 SqlCommand cmd = new SqlCommand(@"SELECT m.*, tm.Total_Seats, t.*
-                                          FROM [Movie] m
-                                          JOIN [TheaterMovie] tm ON m.Movie_Id = tm.Movie_Id
-                                          JOIN [Theater] t ON tm.Theater_Id = t.Theater_Id
-                                          WHERE m.Movie_Id = @movie_id", cnn);
+                                                    FROM [Movie] m
+                                                    LEFT JOIN [TheaterMovie] tm ON tm.Movie_Id = m.Movie_Id
+                                                    LEFT JOIN [Theater] t ON tm.Theater_Id = t.Theater_Id
+                                                    WHERE m.Movie_Id = @movie_id", cnn);
                 cmd.Parameters.AddWithValue("@movie_id", movie_id);
 
                 cnn.Open();
@@ -47,10 +47,12 @@ namespace Movie_Ticket_Booking_Services
                             Genre = reader.GetString(2),
                             Release_Date = reader.GetDateTime(3),
                             Duration = reader.GetTimeSpan(4),
-                            Theaters = new List<TheaterMovie>()
+                            Theaters = new List<TheaterMovie>() // Initialize the theaters list
                         };
                     }
+
                     // Add TheaterMovie for the movie
+                    
                     TheaterMovie theaterMovie = new TheaterMovie
                     {
                         Theater_Id = Convert.ToInt32(reader["Theater_Id"]),
@@ -69,6 +71,8 @@ namespace Movie_Ticket_Booking_Services
                 return movie;
             }
         }
+
+
         /*
         public string AddMovie(Movie movie)
         {
@@ -102,54 +106,70 @@ namespace Movie_Ticket_Booking_Services
         public List<Movie> GetMovies()
         {
             List<Movie> movies = new List<Movie>();
-            using (SqlConnection cnn = GetSqlConnection())
+
+            try
             {
-                SqlCommand cmd = new SqlCommand(@"SELECT m.*, tm.Total_Seats, t.*
-                                          FROM [Movie] m
-                                          JOIN [TheaterMovie] tm ON m.Movie_Id = tm.Movie_Id
-                                          JOIN [Theater] t ON tm.Theater_Id = t.Theater_Id", cnn);
-
-                cnn.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                while (reader.Read())
+                using (SqlConnection cnn = GetSqlConnection())
                 {
-                    int movieId = Convert.ToInt32(reader["Movie_Id"]);
-                    // Check if the movie already exists in the list
-                    Movie movie = movies.FirstOrDefault(m => m.Movie_Id == movieId);
-                    if (movie == null)
-                    {
-                        movie = new Movie
-                        {
-                            Movie_Id = movieId,
-                            Title = reader.GetString(1),
-                            Genre = reader.GetString(2),
-                            Release_Date = reader.GetDateTime(3),
-                            Duration = reader.GetTimeSpan(4),
-                            Theaters = new List<TheaterMovie>()
-                        };
-                        movies.Add(movie);
-                    }
+                    SqlCommand cmd = new SqlCommand(@"SELECT m.*, tm.Total_Seats, t.*
+                                              FROM [Movie] m
+                                              LEFT JOIN [TheaterMovie] tm ON m.Movie_Id = tm.Movie_Id
+                                              LEFT JOIN [Theater] t ON tm.Theater_Id = t.Theater_Id", cnn);
 
-                    // Add TheaterMovie for the movie
-                    TheaterMovie theaterMovie = new TheaterMovie
+                    cnn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
                     {
-                        Theater_Id = Convert.ToInt32(reader["Theater_Id"]),
-                        Movie_Id = movieId,
-                        Total_Seats = Convert.ToInt32(reader["Total_Seats"]),
-                        Theater = new Theater
+                        int movieId = Convert.ToInt32(reader["Movie_Id"]);
+
+                        // Check if the movie already exists in the list
+                        Movie movie = movies.FirstOrDefault(m => m.Movie_Id == movieId);
+                        if (movie == null)
                         {
-                            Theater_Id = Convert.ToInt32(reader["Theater_Id"]),
-                            Name = reader.GetString(7),
-                            Address = reader.GetString(8)
+                            movie = new Movie
+                            {
+                                Movie_Id = movieId,
+                                Title = reader.GetString(reader.GetOrdinal("Title")),
+                                Genre = reader.GetString(reader.GetOrdinal("Genre")),
+                                Release_Date = reader.GetDateTime(reader.GetOrdinal("Release_Date")),
+                                Duration = reader.GetTimeSpan(reader.GetOrdinal("Duration")),
+                                Theaters = new List<TheaterMovie>()
+                            };
+                            movies.Add(movie);
                         }
-                    };
-                    movie.Theaters.Add(theaterMovie);
+
+                        // Add TheaterMovie for the movie if theaters are available
+                        if (!reader.IsDBNull(reader.GetOrdinal("Theater_Id")))
+                        {
+                            TheaterMovie theaterMovie = new TheaterMovie
+                            {
+                                Theater_Id = Convert.ToInt32(reader["Theater_Id"]),
+                                Movie_Id = movieId,
+                                Total_Seats = Convert.ToInt32(reader["Total_Seats"]),
+                                Theater = new Theater
+                                {
+                                    Theater_Id = Convert.ToInt32(reader["Theater_Id"]),
+                                    Name = reader.GetString(reader.GetOrdinal("Name")),
+                                    Address = reader.GetString(reader.GetOrdinal("Address"))
+                                }
+                            };
+                            movie.Theaters.Add(theaterMovie);
+                        }
+                    }
+                    reader.Close();
                 }
-                reader.Close();
             }
+            catch (Exception ex)
+            {
+                // Log or handle any exceptions that occur
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
             return movies;
         }
+
+
 
 
         public string AddMovie(Movie movie)
@@ -301,5 +321,45 @@ namespace Movie_Ticket_Booking_Services
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public List<Theater> GetTheatersByMovieId(int movieId)
+        {
+            List<Theater> theaters = new List<Theater>();
+
+            try
+            {
+                using (SqlConnection cnn = GetSqlConnection())
+                {
+                    SqlCommand cmd = new SqlCommand(@"SELECT t.Theater_Id, t.Name, t.Address
+                                              FROM [Theater] t
+                                              INNER JOIN [TheaterMovie] tm ON tm.Theater_Id = t.Theater_Id
+                                              WHERE tm.Movie_Id = @movieId", cnn);
+                    cmd.Parameters.AddWithValue("@movieId", movieId);
+
+                    cnn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Theater theater = new Theater
+                        {
+                            Theater_Id = Convert.ToInt32(reader["Theater_Id"]),
+                            Name = reader.GetString(reader.GetOrdinal("Name")),
+                            Address = reader.GetString(reader.GetOrdinal("Address"))
+                        };
+                        theaters.Add(theater);
+                    }
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle any exceptions that occur
+                Console.WriteLine("An error occurred: " + ex.Message);
+            }
+
+            return theaters;
+        }
+
     }
 }

@@ -25,6 +25,9 @@ namespace Movie_Ticket_Booking_Services
         string UpdateTheater(Theater theater);
 
         [OperationContract]
+        Movie[] GetMoviesNotInTheater(int theaterId);
+
+        [OperationContract]
         string DeleteTheater(int id);
 
         [OperationContract]

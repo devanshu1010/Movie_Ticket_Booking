@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="TicketServices" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Movie_Ticket_Booking_Services.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITicketServices_GetTickets_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTickets" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_GetTickets_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_GetTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicket" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_GetTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_BookTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:BookTicket" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_BookTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BookTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_DeleteTicket_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTicket" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_DeleteTicket_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTicketResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITicketServices">
+    <wsdl:operation name="GetTickets">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/GetTickets" message="tns:ITicketServices_GetTickets_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketServices/GetTicketsResponse" message="tns:ITicketServices_GetTickets_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/GetTicket" message="tns:ITicketServices_GetTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketServices/GetTicketResponse" message="tns:ITicketServices_GetTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BookTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/BookTicket" message="tns:ITicketServices_BookTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketServices/BookTicketResponse" message="tns:ITicketServices_BookTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTicket">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/DeleteTicket" message="tns:ITicketServices_DeleteTicket_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketServices/DeleteTicketResponse" message="tns:ITicketServices_DeleteTicket_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITicketServices" type="tns:ITicketServices">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTickets">
+      <soap:operation soapAction="http://tempuri.org/ITicketServices/GetTickets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicket">
+      <soap:operation soapAction="http://tempuri.org/ITicketServices/GetTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookTicket">
+      <soap:operation soapAction="http://tempuri.org/ITicketServices/BookTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTicket">
+      <soap:operation soapAction="http://tempuri.org/ITicketServices/DeleteTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TicketServices">
+    <wsdl:port name="BasicHttpBinding_ITicketServices" binding="tns:BasicHttpBinding_ITicketServices">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

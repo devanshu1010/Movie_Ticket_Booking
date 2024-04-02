@@ -59,7 +59,7 @@
     <div class="heading">
         </br></br></br></br>
         <h1>Online Movie Ticket Booking</h1>
-        <p>Login to explore our wide range of books!</p>
+        <p>Purchase your movie tickets now and explore a wide selection of films!!</p>
     </div>
     <form id="form1" runat="server">
         <div class="container">

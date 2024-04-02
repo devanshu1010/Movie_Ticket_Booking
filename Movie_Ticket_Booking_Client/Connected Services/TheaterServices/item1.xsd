@@ -55,6 +55,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetMoviesNotInTheater">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="theaterId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMoviesNotInTheaterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Movie_Ticket_Booking_Services.Models" minOccurs="0" name="GetMoviesNotInTheaterResult" nillable="true" type="q5:ArrayOfMovie" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeleteTheater">
     <xs:complexType>
       <xs:sequence>

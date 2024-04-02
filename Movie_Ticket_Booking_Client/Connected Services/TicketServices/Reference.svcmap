@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="dd1f9555-bc77-4137-96d9-683cd3ce296b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="339da28e-1474-4ae9-90eb-11d0dd03e0bf" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="72c78862-e146-4fbb-a231-292e7f6e330f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="13fd65b3-ff0b-4df6-b6be-9cd840666b29" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="eca9ed3a-b499-4a7c-a324-d3fa97d34b4e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?xsd=xsd0" />
+    <MetadataFile FileName="TicketServices.wsdl" MetadataType="Wsdl" ID="401e553a-bc88-4e45-a3d9-5eef5256a901" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Movie_Ticket_Booking_Services/TicketServices/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

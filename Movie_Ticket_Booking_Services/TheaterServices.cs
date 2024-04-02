@@ -184,6 +184,53 @@ namespace Movie_Ticket_Booking_Services
             }
         }
 
+        public Movie[] GetMoviesNotInTheater(int theaterId)
+        {
+            List<Movie> moviesNotInTheater = new List<Movie>();
+
+            // Get all movies
+            List<Movie> allMovies = GetAllMovies();
+
+            // Get movies associated with the theater
+            List<Movie> moviesInTheater = GetMoviesForTheater(theaterId).Select(theaterMovie => theaterMovie.Movie).ToList();
+
+            // Find movies that are not associated with the theater
+            foreach (var movie in allMovies)
+            {
+                if (!moviesInTheater.Any(m => m.Movie_Id == movie.Movie_Id))
+                {
+                    moviesNotInTheater.Add(movie);
+                }
+            }
+
+            return moviesNotInTheater.ToArray();
+        }
+
+        private List<Movie> GetAllMovies()
+        {
+            List<Movie> allMovies = new List<Movie>();
+            using (SqlConnection cnn = GetSqlConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM [Movie]", cnn);
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Movie movie = new Movie
+                    {
+                        Movie_Id = Convert.ToInt32(reader["Movie_Id"]),
+                        Title = reader.GetString(1),
+                        Genre = reader.GetString(2),
+                        Release_Date = reader.GetDateTime(3),
+                        Duration = reader.GetTimeSpan(4)
+                    };
+                    allMovies.Add(movie);
+                }
+                reader.Close();
+            }
+            return allMovies;
+        }
+
         public string DeleteTheater(int id)
         {
             using (SqlConnection cnn = GetSqlConnection())

@@ -29,5 +29,8 @@ namespace Movie_Ticket_Booking_Services
 
         [OperationContract]
         string AddMovieToTheater(int theaterId, Movie movie, int totalSeats);
+
+        [OperationContract]
+        List<Theater> GetTheatersByMovieId(int movieId);
     }
 }
