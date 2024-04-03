@@ -79,7 +79,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\MovieServices\MovieServices.wsdl" />
-    <Content Include="BookTicket.aspx" />
     <Content Include="Connected Services\MovieServices\Movie_Ticket_Booking_Client.MovieServices.Movie.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -155,13 +154,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookTicket.aspx.cs">
-      <DependentUpon>BookTicket.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BookTicket.aspx.designer.cs">
-      <DependentUpon>BookTicket.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Connected Services\MovieServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
