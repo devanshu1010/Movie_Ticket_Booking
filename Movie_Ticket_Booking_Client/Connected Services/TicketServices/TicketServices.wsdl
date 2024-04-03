@@ -31,6 +31,18 @@
   <wsdl:message name="ITicketServices_DeleteTicket_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteTicketResponse" />
   </wsdl:message>
+  <wsdl:message name="ITicketServices_GetNumberOfTicketsBooked_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfTicketsBooked" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_GetNumberOfTicketsBooked_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNumberOfTicketsBookedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_GetTicketsForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketsForUser" />
+  </wsdl:message>
+  <wsdl:message name="ITicketServices_GetTicketsForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTicketsForUserResponse" />
+  </wsdl:message>
   <wsdl:portType name="ITicketServices">
     <wsdl:operation name="GetTickets">
       <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/GetTickets" message="tns:ITicketServices_GetTickets_InputMessage" />
@@ -47,6 +59,14 @@
     <wsdl:operation name="DeleteTicket">
       <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/DeleteTicket" message="tns:ITicketServices_DeleteTicket_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ITicketServices/DeleteTicketResponse" message="tns:ITicketServices_DeleteTicket_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfTicketsBooked">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/GetNumberOfTicketsBooked" message="tns:ITicketServices_GetNumberOfTicketsBooked_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketServices/GetNumberOfTicketsBookedResponse" message="tns:ITicketServices_GetNumberOfTicketsBooked_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITicketServices/GetTicketsForUser" message="tns:ITicketServices_GetTicketsForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITicketServices/GetTicketsForUserResponse" message="tns:ITicketServices_GetTicketsForUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ITicketServices" type="tns:ITicketServices">
@@ -80,6 +100,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteTicket">
       <soap:operation soapAction="http://tempuri.org/ITicketServices/DeleteTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberOfTicketsBooked">
+      <soap:operation soapAction="http://tempuri.org/ITicketServices/GetNumberOfTicketsBooked" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTicketsForUser">
+      <soap:operation soapAction="http://tempuri.org/ITicketServices/GetTicketsForUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Movie_Ticket_Booking_Client
 {
@@ -35,7 +36,8 @@ namespace Movie_Ticket_Booking_Client
                     Session["userId"] = user.Id;
                     Session["userName"] = user.Name;
                     Console.WriteLine(Session["userId"]);
-
+                    //MessageBox.Show(Session["userId"].ToString());
+                    //Label1.Text = user.Name;
                     Console.WriteLine(Session["userName"]);
                     if (user.Email == "admin@gmail.com" && user.Name == "admin")
                     {

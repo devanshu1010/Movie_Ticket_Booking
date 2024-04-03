@@ -342,5 +342,26 @@ namespace Movie_Ticket_Booking_Services
                 return count > 0;
             }
         }
+
+        public int GetTotalSeats(int theaterId, int movieId)
+        {
+            using (SqlConnection cnn = GetSqlConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT Total_Seats FROM [TheaterMovie] WHERE Theater_Id = @Theater_Id AND Movie_Id = @Movie_Id", cnn);
+                cmd.Parameters.AddWithValue("@Theater_Id", theaterId);
+                cmd.Parameters.AddWithValue("@Movie_Id", movieId);
+                cnn.Open();
+                object result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    return 0; // Or handle the case where the theater and movie combination doesn't exist
+                }
+            }
+        }
+
     }
 }

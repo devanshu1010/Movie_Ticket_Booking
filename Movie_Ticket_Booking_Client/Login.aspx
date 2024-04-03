@@ -63,6 +63,7 @@
     </div>
     <form id="form1" runat="server">
         <div class="container">
+            <!-- <asp:Label ID="Label1" runat="server" ></asp:Label> -->
             <div class="form-group text-center">
                 <h2>Login</h2>
             </div>

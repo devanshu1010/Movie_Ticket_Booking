@@ -16,6 +16,16 @@ namespace Movie_Ticket_Booking_Client
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Session["userId"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            if (Session["userName"] == "admin")
+            {
+                Response.Redirect("~/TheaterManagement.aspx");
+            }
+            //User_Id = (int)Session["userId"];
             if (!IsPostBack)
             {
                 // Fetch movie data from the database

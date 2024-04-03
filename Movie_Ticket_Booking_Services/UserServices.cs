@@ -97,8 +97,8 @@ namespace Movie_Ticket_Booking_Services
                     user = new User
                     {
                         Id = Convert.ToInt32(reader["Id"]),
-                        Name = reader.GetString(1),
-                        Email = reader.GetString(2),
+                        Name = reader.GetString(2),
+                        Email = reader.GetString(1),
                         Phone_no = reader.GetString(4)
                     };
                 }

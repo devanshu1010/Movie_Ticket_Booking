@@ -14,7 +14,6 @@
       <xs:element minOccurs="0" name="Seat_no" type="xs:decimal" />
       <xs:element minOccurs="0" name="Theater_Id" type="xs:int" />
       <xs:element minOccurs="0" name="Ticket_Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
       <xs:element minOccurs="0" name="User_Id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

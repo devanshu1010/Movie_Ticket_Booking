@@ -64,14 +64,28 @@
             cursor: pointer;
         }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
 </head>
     <body>
-
-        <div class="navbar">
-            <a href="#" class="left">Online Movie Ticket</a>
-            <a href="Home.aspx" class="right">Profile</a>
-            <a href="#"class="right">Home</a>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="Home.aspx">Online Book Ticket</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Home.aspx">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Profile.aspx">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Logout.aspx">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
         <div class="movie-container">
             <% foreach (var movie in Movies) { %>

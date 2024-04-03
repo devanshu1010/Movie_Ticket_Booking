@@ -16,12 +16,18 @@ namespace Movie_Ticket_Booking_Services
         List<Ticket> GetTickets();
 
         [OperationContract]
-        Ticket GetTicket(int ticketId, int userId, int movieId, int theaterId);
+        Ticket GetTicket(int ticketId, int userId);
 
         [OperationContract]
         string BookTicket(Ticket ticket);
 
         [OperationContract]
         string DeleteTicket(int ticketId, int userId, int movieId, int theaterId);
+
+        [OperationContract]
+        int GetNumberOfTicketsBooked(int movieId, int theaterId);
+
+        [OperationContract]
+        List<Ticket> GetTicketsForUser(int userId);
     }
 }

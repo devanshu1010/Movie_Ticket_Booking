@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Windows.Forms;
 
 namespace Movie_Ticket_Booking_Client
 {
@@ -14,8 +15,18 @@ namespace Movie_Ticket_Booking_Client
         private int update_id = -1; 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userId"] == null)
+            {
+                Response.Redirect("~/Login.aspx");
+            }
+            if (Session["userName"].ToString() != "admin")
+            {
+                Response.Redirect("~/Logout.aspx");
+            }
+            //MessageBox.Show(Session["userName"].ToString());
             if (!IsPostBack)
             {
+                
                 BindTheaters();
                 /*if (ddlAvailableMovies.Items.Count == 0) // Check if movies are already populated to avoid duplication
                 {

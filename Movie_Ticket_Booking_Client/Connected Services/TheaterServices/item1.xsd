@@ -99,4 +99,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetTotalSeats">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="theaterId" type="xs:int" />
+        <xs:element minOccurs="0" name="movieId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTotalSeatsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTotalSeatsResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

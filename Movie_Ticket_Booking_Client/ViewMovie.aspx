@@ -7,28 +7,54 @@
 <head runat="server">
     <title>View Movie Details</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar a.right {
+            float: right;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="container">
+       
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">Book Ticket</a>
+                <a class="navbar-brand" href="Home.aspx">Online Book Ticket</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="Home.aspx">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link" href="Profile.aspx">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Logout.aspx">Logout</a>
                         </li>
                     </ul>
                 </div>
             </nav>
-
+         <div class="container">
             <!-- Movie Details -->
             <div class="card mt-4">
                 <div class="card-body">
@@ -41,19 +67,19 @@
                     </ul>
                 </div>
             </div>
-
+            <!--<asp:Label ID="label" runat="server" Text="Hello" ></asp:Label>
             <!-- List of Theaters -->
             <div class="card mt-4">
                 <div class="card-body">
                     <h5 class="card-title">Theaters</h5>
-                    <asp:Repeater ID="rptTheaters" runat="server">
+                    <asp:Repeater ID="rptTheaters" runat="server" OnItemCommand="rptTheaters_ItemCommand">
                         <ItemTemplate>
                             <div class="card mt-2">
                                 <div class="card-body">
                                     <h6 class="card-title">Theater: <%# Eval("Name") %></h6>
                                     <p class="card-text"><strong>Address:</strong> <%# Eval("Address") %></p>
                                     
-                                    <asp:Button runat="server" Text="Book Ticket" CssClass="btn btn-primary" CommandName="BookTicket" CommandArgument='<%# Eval("Theater_Id") %>' />
+                                    <asp:Button  ID="btnBookTicket" runat="server" Text="Book Ticket" CssClass="btn btn-primary" CommandName="BookTicket" CommandArgument='<%# Eval("Theater_Id") %>' />
                                 </div>
                             </div>
                         </ItemTemplate>

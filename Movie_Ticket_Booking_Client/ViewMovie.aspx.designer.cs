@@ -60,6 +60,15 @@ namespace Movie_Ticket_Booking_Client
         protected global::System.Web.UI.WebControls.Label lblDuration;
 
         /// <summary>
+        /// label control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label;
+
+        /// <summary>
         /// rptTheaters control.
         /// </summary>
         /// <remarks>

@@ -41,9 +41,6 @@ namespace Movie_Ticket_Booking_Client.TicketServices {
         private int Ticket_IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int User_IdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -135,19 +132,6 @@ namespace Movie_Ticket_Booking_Client.TicketServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Time {
-            get {
-                return this.TimeField;
-            }
-            set {
-                if ((this.TimeField.Equals(value) != true)) {
-                    this.TimeField = value;
-                    this.RaisePropertyChanged("Time");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int User_Id {
             get {
                 return this.User_IdField;
@@ -181,10 +165,10 @@ namespace Movie_Ticket_Booking_Client.TicketServices {
         System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TicketServices.Ticket[]> GetTicketsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/GetTicket", ReplyAction="http://tempuri.org/ITicketServices/GetTicketResponse")]
-        Movie_Ticket_Booking_Client.TicketServices.Ticket GetTicket(int ticketId, int userId, int movieId, int theaterId);
+        Movie_Ticket_Booking_Client.TicketServices.Ticket GetTicket(int ticketId, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/GetTicket", ReplyAction="http://tempuri.org/ITicketServices/GetTicketResponse")]
-        System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TicketServices.Ticket> GetTicketAsync(int ticketId, int userId, int movieId, int theaterId);
+        System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TicketServices.Ticket> GetTicketAsync(int ticketId, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/BookTicket", ReplyAction="http://tempuri.org/ITicketServices/BookTicketResponse")]
         string BookTicket(Movie_Ticket_Booking_Client.TicketServices.Ticket ticket);
@@ -197,6 +181,18 @@ namespace Movie_Ticket_Booking_Client.TicketServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/DeleteTicket", ReplyAction="http://tempuri.org/ITicketServices/DeleteTicketResponse")]
         System.Threading.Tasks.Task<string> DeleteTicketAsync(int ticketId, int userId, int movieId, int theaterId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/GetNumberOfTicketsBooked", ReplyAction="http://tempuri.org/ITicketServices/GetNumberOfTicketsBookedResponse")]
+        int GetNumberOfTicketsBooked(int movieId, int theaterId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/GetNumberOfTicketsBooked", ReplyAction="http://tempuri.org/ITicketServices/GetNumberOfTicketsBookedResponse")]
+        System.Threading.Tasks.Task<int> GetNumberOfTicketsBookedAsync(int movieId, int theaterId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/GetTicketsForUser", ReplyAction="http://tempuri.org/ITicketServices/GetTicketsForUserResponse")]
+        Movie_Ticket_Booking_Client.TicketServices.Ticket[] GetTicketsForUser(int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITicketServices/GetTicketsForUser", ReplyAction="http://tempuri.org/ITicketServices/GetTicketsForUserResponse")]
+        System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TicketServices.Ticket[]> GetTicketsForUserAsync(int userId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -234,12 +230,12 @@ namespace Movie_Ticket_Booking_Client.TicketServices {
             return base.Channel.GetTicketsAsync();
         }
         
-        public Movie_Ticket_Booking_Client.TicketServices.Ticket GetTicket(int ticketId, int userId, int movieId, int theaterId) {
-            return base.Channel.GetTicket(ticketId, userId, movieId, theaterId);
+        public Movie_Ticket_Booking_Client.TicketServices.Ticket GetTicket(int ticketId, int userId) {
+            return base.Channel.GetTicket(ticketId, userId);
         }
         
-        public System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TicketServices.Ticket> GetTicketAsync(int ticketId, int userId, int movieId, int theaterId) {
-            return base.Channel.GetTicketAsync(ticketId, userId, movieId, theaterId);
+        public System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TicketServices.Ticket> GetTicketAsync(int ticketId, int userId) {
+            return base.Channel.GetTicketAsync(ticketId, userId);
         }
         
         public string BookTicket(Movie_Ticket_Booking_Client.TicketServices.Ticket ticket) {
@@ -256,6 +252,22 @@ namespace Movie_Ticket_Booking_Client.TicketServices {
         
         public System.Threading.Tasks.Task<string> DeleteTicketAsync(int ticketId, int userId, int movieId, int theaterId) {
             return base.Channel.DeleteTicketAsync(ticketId, userId, movieId, theaterId);
+        }
+        
+        public int GetNumberOfTicketsBooked(int movieId, int theaterId) {
+            return base.Channel.GetNumberOfTicketsBooked(movieId, theaterId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetNumberOfTicketsBookedAsync(int movieId, int theaterId) {
+            return base.Channel.GetNumberOfTicketsBookedAsync(movieId, theaterId);
+        }
+        
+        public Movie_Ticket_Booking_Client.TicketServices.Ticket[] GetTicketsForUser(int userId) {
+            return base.Channel.GetTicketsForUser(userId);
+        }
+        
+        public System.Threading.Tasks.Task<Movie_Ticket_Booking_Client.TicketServices.Ticket[]> GetTicketsForUserAsync(int userId) {
+            return base.Channel.GetTicketsForUserAsync(userId);
         }
     }
 }

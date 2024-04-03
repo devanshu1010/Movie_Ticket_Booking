@@ -18,8 +18,6 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="ticketId" type="xs:int" />
         <xs:element minOccurs="0" name="userId" type="xs:int" />
-        <xs:element minOccurs="0" name="movieId" type="xs:int" />
-        <xs:element minOccurs="0" name="theaterId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,6 +56,35 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="DeleteTicketResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumberOfTicketsBooked">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="movieId" type="xs:int" />
+        <xs:element minOccurs="0" name="theaterId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNumberOfTicketsBookedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNumberOfTicketsBookedResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketsForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTicketsForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Movie_Ticket_Booking_Services.Models" minOccurs="0" name="GetTicketsForUserResult" nillable="true" type="q4:ArrayOfTicket" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -16,7 +16,6 @@ namespace Movie_Ticket_Booking_Services.Models
         private int theaterId;
         private DateTime date;
         private decimal price;
-        private DateTime time;
         private decimal seat_no;
 
         [DataMember]
@@ -61,12 +60,6 @@ namespace Movie_Ticket_Booking_Services.Models
             set { price = value; }
         }
 
-        [DataMember]
-        public DateTime Time
-        {
-            get { return time; }
-            set { time = value; }
-        }
 
         [DataMember]
         public decimal Seat_no

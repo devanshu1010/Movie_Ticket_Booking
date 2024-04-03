@@ -385,6 +385,12 @@ namespace Movie_Ticket_Booking_Client.TheaterServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITheaterServices/AddMovieToTheater", ReplyAction="http://tempuri.org/ITheaterServices/AddMovieToTheaterResponse")]
         System.Threading.Tasks.Task<string> AddMovieToTheaterAsync(int theaterId, int movieId, int totalSeats);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITheaterServices/GetTotalSeats", ReplyAction="http://tempuri.org/ITheaterServices/GetTotalSeatsResponse")]
+        int GetTotalSeats(int theaterId, int movieId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITheaterServices/GetTotalSeats", ReplyAction="http://tempuri.org/ITheaterServices/GetTotalSeatsResponse")]
+        System.Threading.Tasks.Task<int> GetTotalSeatsAsync(int theaterId, int movieId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -468,6 +474,14 @@ namespace Movie_Ticket_Booking_Client.TheaterServices {
         
         public System.Threading.Tasks.Task<string> AddMovieToTheaterAsync(int theaterId, int movieId, int totalSeats) {
             return base.Channel.AddMovieToTheaterAsync(theaterId, movieId, totalSeats);
+        }
+        
+        public int GetTotalSeats(int theaterId, int movieId) {
+            return base.Channel.GetTotalSeats(theaterId, movieId);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetTotalSeatsAsync(int theaterId, int movieId) {
+            return base.Channel.GetTotalSeatsAsync(theaterId, movieId);
         }
     }
 }
